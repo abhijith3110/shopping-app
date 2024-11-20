@@ -1,0 +1,12 @@
+.view-collection-btn {
+    background: #000;
+    padding: 15px 40px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.view-collection-btn:hover{
+    background: #575757;
+    color: #ffffff;
+}
