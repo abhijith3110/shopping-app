@@ -1,13 +1,14 @@
-import React from 'react'
-import "./ViewCollection.css"
+import React from "react";
+import "./ViewCollection.css";
 
-const ViewCollection = () => {
-
+const ViewCollection = ({ onClick, showAll }) => {
   return (
-    <div className='view-collection'>
-        <button className='view-collection-btn'>VIEW COLLECTION</button>
+    <div className="view-collection">
+      <button className="view-collection-btn" onClick={onClick}>
+        {showAll ? "SHOW LESS" : "VIEW COLLECTION"}
+      </button>
     </div>
-  )
-}
+  );
+};
 
-export default ViewCollection
+export default ViewCollection;

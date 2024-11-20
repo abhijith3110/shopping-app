@@ -1,0 +1,53 @@
+.itemcards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  padding: 30px 0px;
+}
+
+.itemcard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  cursor: pointer;
+  max-width: 300px;
+  padding: 10px 0px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.itemcard-img {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.itemcard-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.itemcard-img:hover img {
+  transform: scale(1.2);
+}
+
+.itemcard-details-title,
+.itemcard-details-price {
+  font-size: 16px;
+  font-weight: 500;
+  max-width: 200px;
+  text-align: center;
+}
+
+.itemcard-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.itemcard-details-rate {
+  display: flex;
+  justify-content: center;
+}

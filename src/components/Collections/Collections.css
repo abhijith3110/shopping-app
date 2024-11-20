@@ -1,0 +1,72 @@
+.collection-container{
+    margin: 0 auto;
+    padding: 0 15px;
+    max-width: 1300px;
+    padding: 60px 0px;
+}
+
+.collection{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.collection-header{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.collection-heading p {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.collection-view-btn{
+    text-align: center;
+}
+
+.collection-subHeading p {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.collection-category ul {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 0px;
+
+}
+
+.collection-category ul li{
+    list-style: none;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+}
+
+.collection-category ul li::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background-color: #666;
+    transition: all 0.3s ease-in-out;
+}
+
+.collection-category ul li:hover::after {
+    width: 100%; 
+}
+
+.collection-category ul li:hover {
+    color: #666;
+}
+

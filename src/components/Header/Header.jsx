@@ -23,16 +23,16 @@ const Header = () => {
                 </nav>
                 <div className='header-icons'>
                     <div className='header-icon'>
-                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i className="fa-solid fa-magnifying-glass"></i>
                     </div>
                     <div className='header-icon'>
-                        <i class="fa-regular fa-user"></i>
+                        <i className="fa-regular fa-user"></i>
                     </div>
                     <div className='header-icon'>
-                        <i class="fa-solid fa-cart-shopping"></i>
+                        <i className="fa-solid fa-cart-shopping"></i>
                     </div>
                     <div className='header-icon'>
-                        <i class="fa-solid fa-bars"></i>
+                        <i className="fa-solid fa-bars"></i>
                     </div>
                 </div>
             </div>
