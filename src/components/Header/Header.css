@@ -1,6 +1,16 @@
 header {
     background: #fff;
-    padding: 5px 0px;
+    position: relative;
+    width: 100%;
+    box-shadow: none;
+}
+
+header.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
 }
 
 .header {

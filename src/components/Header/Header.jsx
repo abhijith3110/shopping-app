@@ -1,12 +1,31 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./Header.css"
 
 
 const Header = () => {
 
+    const [isFixed, setIsFixed] = useState(false);
+
+    const handleScroll = () => {
+        if (window.scrollY > 50) {
+            setIsFixed(true);
+        } else {
+            setIsFixed(false);
+        }
+    };
+
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     return (
-        <header>
+        <header className={isFixed ? 'fixed' : ''}>
             <div className='header'>
                 <div className='header-logo'>
                     <img src="https://optimal-demos.myshopify.com/cdn/shop/files/dm2-logo.png?v=1632039937" alt="header-logo" />
