@@ -15,7 +15,7 @@ const ItemCard = ({ selectedCategory, showAll }) => {
 
   const itemToDisplay = showAll ? filterProduct : filterProduct.slice(0, 8)
 
-  if (error) return <p> Product Not Found {error}</p>;
+  if (error) return <p> Product Not Found</p>;
 
   return (
     <div className="itemcards">

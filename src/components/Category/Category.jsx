@@ -6,6 +6,8 @@ const Category = () => {
 
     const { item, error } = useContext(itemContext);
 
+    if (error) return <p> Product Not Found</p>;
+
     const filterJewellery = item.filter((item) => item.category === "jewelery")
 
     return (
@@ -27,7 +29,7 @@ const Category = () => {
                         <div className='category-list-img'>
                             <img src={item.image} alt="" />
                         </div>
-                        <div>
+                        <div className='category-list-category'>
                             <p>{item.category}</p>
                         </div>
                     </div>
