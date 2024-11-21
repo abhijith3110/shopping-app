@@ -92,8 +92,6 @@ header.fixed {
     visibility: visible;
     transform: translateY(15px);
     cursor: pointer;
-    background: #000;
-    color: #fff;
 }
 
 .header-sub-nav ul{
