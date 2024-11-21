@@ -7,10 +7,10 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url('https://optimal-demos.myshopify.com/cdn/shop/files/dm2-hero-bnr_2000x.jpg?v=1614749473');
-    background-position: 50% -500%;
+    background-position: 50% 50%;
     background-attachment: fixed;
     width: 100%;
-    height: 550px;
+    height: 100vh;
     display: flex;
     justify-content: space-around;
 }
