@@ -3,6 +3,7 @@ import Banner from "./components/Banner/Banner";
 import Category from "./components/Category/Category.jsx";
 import Collections from "./components/Collections/Collections";
 import Header from "./components/Header/Header";
+import TopPicks from "./components/TopPicks/TopPicks.jsx";
 import { ItemProvider } from "./layout/CollectionContext/CollectionContext.jsx";
 
 function App() {
@@ -12,7 +13,8 @@ function App() {
             <Banner />
             <ItemProvider>
                 <Collections />
-                <Category/>
+                <Category />
+                <TopPicks />
             </ItemProvider>
         </div>
     );

@@ -1,0 +1,14 @@
+.top-picks-container {
+    margin: 0 auto;
+    padding: 0 15px;
+    max-width: 1300px;
+}
+
+.top-picks-header h1{
+    text-align: center;
+    padding: 20px 0px ;
+}
+
+.top-picks{
+    padding: 50px 0px;
+}
