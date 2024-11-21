@@ -32,12 +32,72 @@ const Header = () => {
                 </div>
                 <nav className='header-nav'>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Shop</a></li>
-                        <li><a href="#">Product</a></li>
-                        <li><a href="#">Pages</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Buy Now</a></li>
+                        <li><a href="#">Home</a>
+                        <div className='header-sub-nav'>
+                        <ul>
+                            <li>Mens</li>
+                            <li>Womens</li>
+                            <li>Kids</li>
+                            <li>Girls</li>
+                            <li>Boys</li>
+                        </ul>
+                        </div>
+                        </li>
+                        <li><a href="#">Shop</a>
+                        <div className='header-sub-nav'>
+                        <ul>
+                            <li>Mens</li>
+                            <li>Womens</li>
+                            <li>Kids</li>
+                            <li>Girls</li>
+                            <li>Boys</li>
+                        </ul>
+                        </div>
+                        </li>
+                        <li><a href="#">Product</a>
+                        <div className='header-sub-nav'>
+                        <ul>
+                            <li>Mens</li>
+                            <li>Womens</li>
+                            <li>Kids</li>
+                            <li>Girls</li>
+                            <li>Boys</li>
+                        </ul>
+                        </div>
+                        </li>
+                        <li><a href="#">Pages</a>
+                        <div className='header-sub-nav'>
+                        <ul>
+                            <li>Mens</li>
+                            <li>Womens</li>
+                            <li>Kids</li>
+                            <li>Girls</li>
+                            <li>Boys</li>
+                        </ul>
+                        </div>
+                        </li>
+                        <li><a href="#">Blog</a>
+                        <div className='header-sub-nav'>
+                        <ul>
+                            <li>Mens</li>
+                            <li>Womens</li>
+                            <li>Kids</li>
+                            <li>Girls</li>
+                            <li>Boys</li>
+                        </ul>
+                        </div>
+                        </li>
+                        <li><a href="#">Buy Now</a>
+                        <div className='header-sub-nav'>
+                        <ul>
+                            <li>Mens</li>
+                            <li>Womens</li>
+                            <li>Kids</li>
+                            <li>Girls</li>
+                            <li>Boys</li>
+                        </ul>
+                        </div>
+                        </li>
                     </ul>
                 </nav>
                 <div className='header-icons'>
