@@ -24,10 +24,10 @@ const ItemCard = ({ selectedCategory, showAll }) => {
   } else if (selectedCategory === "type") {
     const menProducts = item
       .filter((product) => product.category === "men's clothing")
-      .slice(0, 2);
+      .slice(1, 3);
     const womenProducts = item
       .filter((product) => product.category === "women's clothing")
-      .slice(0, 2);
+      .slice(2, 4);
     filteredProducts = [...menProducts, ...womenProducts];
   }
 
