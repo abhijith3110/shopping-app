@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "playfair";
+    src: url("../../../public/assets/fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf") format("truetype");
+  }
+
 .top-picks-container {
     margin: 0 auto;
     padding: 0 15px;
@@ -7,6 +12,7 @@
 .top-picks-header h1{
     text-align: center;
     padding: 20px 0px ;
+    font-family: "playfair",sans-serif;
 }
 
 .top-picks{

@@ -7,13 +7,7 @@ const ItemCard = ({ selectedCategory, showAll }) => {
   const { item, error } = useContext(itemContext);
 
   let filteredProducts = [];
-  if (selectedCategory === "all") {
-    filteredProducts = item.filter(
-      (product) =>
-        product.category === "men's clothing" ||
-        product.category === "women's clothing"
-    );
-  } else if (selectedCategory === "men") {
+  if (selectedCategory === "men") {
     filteredProducts = item.filter(
       (product) => product.category === "men's clothing"
     );
@@ -25,19 +19,21 @@ const ItemCard = ({ selectedCategory, showAll }) => {
     filteredProducts = item.filter(
       (product) => product.category === "jewelery"
     );
-  } else if (selectedCategory === "type") {
+  } else if (selectedCategory === "all") {
     const menProducts = item
       .filter((product) => product.category === "men's clothing")
-      .slice(1, 3);
+      .slice(2, 3);
     const womenProducts = item
       .filter((product) => product.category === "women's clothing")
+      .slice(2, 3);
+    const jeweleryProducts = item
+      .filter((product) => product.category === "jewelery")
       .slice(2, 4);
-    filteredProducts = [...menProducts, ...womenProducts];
+    filteredProducts = [...menProducts, ...womenProducts, ...jeweleryProducts];
   }
 
-  const itemToDisplay = showAll
-    ? filteredProducts
-    : filteredProducts.slice(0, 8);
+
+  const itemToDisplay = showAll? filteredProducts: filteredProducts.slice(0, 4);
 
   if (error) return <p> Product Not Found</p>;
 

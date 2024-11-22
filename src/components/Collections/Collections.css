@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "playfair";
+    src: url("../../../public/assets/fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf") format("truetype");
+  }
+
 .collection-container{
     margin: 0 auto;
     padding: 0 15px;
@@ -24,6 +29,7 @@
 .collection-heading p {
     font-size: 28px;
     font-weight: 600;
+    font-family: "playfair",sans-serif;
 }
 
 .collection-view-btn{

@@ -80,7 +80,7 @@ const Footer = () => {
             </div>
             <div className="Newsletter-email-signup">
                 <input type="text" placeholder="Email Address"/>
-                <button>Subcribe</button>
+                <button>SUBCRIBE</button>
             </div>
           </div>
 

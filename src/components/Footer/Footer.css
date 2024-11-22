@@ -40,6 +40,7 @@ footer {
     max-width: 270px;
     line-height: 25px;
     font-weight: 500;
+    font-family: "playfair",sans-serif;
 }
 
 .footer-nav-info ul li a{

@@ -32,63 +32,15 @@ const Header = () => {
                 </div>
                 <nav className='header-nav'>
                     <ul>
-                        <li><a href="#">Home</a>
-                        <div className='header-sub-nav'>
-                        <ul>
-                            <li>About</li>
-                            <li>Contact</li>
-                            <li>Cart</li>
-                        </ul>
-                        </div>
-                        </li>
-                        <li><a href="#">Shop</a>
-                        <div className='header-sub-nav'>
-                        <ul>
-                            <li>Mens</li>
-                            <li>Womens</li>
-                            <li>Kids</li>
-                            <li>Girls</li>
-                            <li>Boys</li>
-                        </ul>
-                        </div>
-                        </li>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Shop</a></li>
                         <li><a href="#">Product</a>
                         <div className='header-sub-nav'>
                         <ul>
+                            <li>All</li>
                             <li>Mens</li>
                             <li>Womens</li>
-                            <li>Kids</li>
-                            <li>Girls</li>
-                            <li>Boys</li>
-                        </ul>
-                        </div>
-                        </li>
-                        <li><a href="#">Pages</a>
-                        <div className='header-sub-nav'>
-                        <ul>
-                            <li>Page 1</li>
-                            <li>Page 2</li>
-                            <li>Page 3</li>
-                            <li>Page 4</li>
-                            <li>Page 5</li>
-                            <li>Page 6</li>
-                        </ul>
-                        </div>
-                        </li>
-                        <li><a href="#">Blog</a>
-                        <div className='header-sub-nav'>
-                        <ul>
-                            <li>Blog 1</li>
-                            <li>Blog 2</li>
-                        </ul>
-                        </div>
-                        </li>
-                        <li><a href="#">Buy Now</a>
-                        <div className='header-sub-nav'>
-                        <ul>
-                            <li>Cart</li>
-                            <li>Buy Now</li>
-                            <li>Cart</li>
+                            <li>Jewellery</li>
                         </ul>
                         </div>
                         </li>
