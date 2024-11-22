@@ -21,6 +21,10 @@ const ItemCard = ({ selectedCategory, showAll }) => {
     filteredProducts = item.filter(
       (product) => product.category === "women's clothing"
     );
+  } else if (selectedCategory === "jewellery") {
+    filteredProducts = item.filter(
+      (product) => product.category === "jewelery"
+    );
   } else if (selectedCategory === "type") {
     const menProducts = item
       .filter((product) => product.category === "men's clothing")
