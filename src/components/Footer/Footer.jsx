@@ -46,24 +46,24 @@ const Footer = () => {
           <div className="footer-nav-address">
           <p>Contact Us</p>
             <ul>
-                <li><i class="fa-solid fa-location-dot"></i>55 Gallaxy Enque, 2568 steet, 23568 NY</li>
-                <li><i class="fa-solid fa-phone"></i>Phone: (440) 000 000 0000</li>
-                <li><i class="fa-regular fa-envelope"></i>Email: sales@yousite.com</li>
+                <li><i class="fa-solid fa-location-dot" style={{color:"green"}}></i>55 Gallaxy Enque, 2568 steet, 23568 NY</li>
+                <li><i class="fa-solid fa-phone" style={{color:"yellow"}}></i>Phone: (440) 000 000 0000</li>
+                <li><i class="fa-regular fa-envelope" style={{color:"red"}}></i>Email: sales@yousite.com</li>
                 <div className="social-icons">
                    <div>
-                   <i className="fa-brands fa-facebook"></i>
+                   <i className="fa-brands fa-facebook" style={{color:"blue"}}></i>
                    </div>
                    <div>
-                   <i className="fa-brands fa-twitter"></i>
+                   <i className="fa-brands fa-twitter" style={{color:"lightblue"}}></i>
                    </div>
                    <div>
-                   <i className="fa-brands fa-whatsapp"></i>
+                   <i className="fa-brands fa-whatsapp" style={{color:"lightgreen"}}></i>
                    </div>
                    <div>
-                   <i className="fa-brands fa-instagram"></i>
+                   <i className="fa-brands fa-instagram" style={{color:"#B73586"}}></i>
                    </div>
                    <div>
-                   <i className="fa-brands fa-linkedin"></i>
+                   <i className="fa-brands fa-linkedin" style={{color:"darkblue"}}></i>
                    </div>
                 </div>
             </ul>
@@ -98,19 +98,22 @@ const Footer = () => {
 
             <div className="Newsletter-copyright-logos">
                 <div className="Newsletter-copyright-logo">
-                <i className="fa-brands fa-cc-visa"></i>
+                <i className="fa-brands fa-cc-visa" style={{color:"blue"}}></i>
                 </div>
                 <div className="Newsletter-copyright-logo">
-                <i className="fa-brands fa-cc-mastercard"></i>
+                <i className="fa-brands fa-cc-mastercard" style={{color:"orange"}}></i>
                 </div>
                 <div className="Newsletter-copyright-logo">
-                <i className="fa-brands fa-cc-amex"></i>
+                <i className="fa-brands fa-cc-amex" style={{color:"indigo"}}></i>
                 </div>
                 <div className="Newsletter-copyright-logo">
-                <i className="fa-brands fa-paypal"></i>
+                <i className="fa-brands fa-paypal" style={{color:"blue"}}></i>
                 </div>
                 <div className="Newsletter-copyright-logo">
-                <i className="fa-brands fa-cc-discover"></i>
+                <i className="fa-brands fa-cc-diners-club" style={{color:"magenta"}}></i>
+                </div>
+                <div className="Newsletter-copyright-logo">
+                <i className="fa-brands fa-cc-discover" style={{color:"yellow"}}></i>
                 </div>
             </div>
 

@@ -47,14 +47,14 @@ header.fixed {
     position: absolute;
     left: 0;
     bottom: -5px;
-    width: 0;
-    height: 2px;
+    width: 0;  
     background-color: #666;
     transition: all 0.3s ease-in-out;
 }
 
 .header-nav ul li a:hover::after {
     width: 100%; 
+    border: 1px solid;
 }
 
 .header-nav ul li a:hover {
