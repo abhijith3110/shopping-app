@@ -8,6 +8,11 @@ const Category = () => {
     const { category } = useContext(categoryContext);
     const navigate = useNavigate()
 
+    const handleCategoryNavigation = (category) => {
+
+        navigate(`/products?category=${category}#collection-category`);
+    }
+
     return (
         <div className="category">
             <div className="category-container">
@@ -26,7 +31,7 @@ const Category = () => {
                     {category && Array.isArray(category) ? (
                         category.map((item) => (
                             <div className="category-list" key={item._id}>
-                                <div className="category-list-img" onClick={()=> navigate('/products')}>
+                                <div className="category-list-img" onClick={() => handleCategoryNavigation(`${item.name}`)}>
                                     <img src={`http://localhost:4000/uploads/${item.category_image}`} alt={item.name} />
                                 </div>
                                 <div className="category-list-category">
