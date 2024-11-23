@@ -5,7 +5,7 @@ import "./TopPicks.css"
 
 const TopPicks = () => {
 
-    const [category, setCategory] = useState('all')
+    const [category, setCategory] = useState('allFilter')
 
   return (
 

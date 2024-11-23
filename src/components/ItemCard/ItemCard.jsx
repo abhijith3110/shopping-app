@@ -1,58 +1,58 @@
 import React, { useContext } from "react";
-import { itemContext } from "../../layout/CollectionContext/CollectionContext";
-import ReactStars from "react-rating-stars-component";
+import { ProductContext } from "../../layout/Contexts/productContext";
+import ReactStars from "react-rating-stars-component"
 import "./ItemCard.css";
 
 const ItemCard = ({ selectedCategory, showAll }) => {
-  const { item, error } = useContext(itemContext);
+
+  const { product } = useContext(ProductContext);
+
 
   let filteredProducts = [];
   if (selectedCategory === "men") {
-    filteredProducts = item.filter(
-      (product) => product.category === "men's clothing"
+    filteredProducts = product.filter(
+      (product) => product.category.name === "mens"
     );
   } else if (selectedCategory === "women") {
-    filteredProducts = item.filter(
-      (product) => product.category === "women's clothing"
+    filteredProducts = product.filter(
+      (product) => product.category.name === "womens"
     );
-  } else if (selectedCategory === "jewellery") {
-    filteredProducts = item.filter(
-      (product) => product.category === "jewelery"
+  } else if (selectedCategory === "kids") {
+    filteredProducts = product.filter(
+      (product) => product.category.name === "kids"
     );
-  } else if (selectedCategory === "all") {
-    const menProducts = item
-      .filter((product) => product.category === "men's clothing")
+  } else if (selectedCategory === "allFilter") {
+    const menProducts = product
+      .filter((product) => product.category.name === "mens")
       .slice(2, 3);
-    const womenProducts = item
-      .filter((product) => product.category === "women's clothing")
-      .slice(2, 3);
-    const jeweleryProducts = item
-      .filter((product) => product.category === "jewelery")
+    const womenProducts = product
+      .filter((product) => product.category.name === "womens")
+      .slice(2, 3)
+    const kidsProducts = product
+      .filter((product) => product.category.name === "kids")
       .slice(2, 4);
-    filteredProducts = [...menProducts, ...womenProducts, ...jeweleryProducts];
+    filteredProducts = [...menProducts, ...womenProducts, ...kidsProducts];
   }
 
 
   const itemToDisplay = showAll? filteredProducts: filteredProducts.slice(0, 4);
-
-  if (error) return <p> Product Not Found</p>;
 
   return (
     <div className="itemcards">
       {itemToDisplay.map((product) => (
         <div className="itemcard" key={product.id}>
           <div className="itemcard-img">
-            <img src={product.image} alt="img" />
+            <img src={`http://localhost:4000/uploads/${product.product_image}`} alt="img" />
           </div>
           <div className="itemcard-details">
             <div className="itemcard-details-title">
-              <p>{product.title}</p>
+              <p>{product.name}</p>
             </div>
             <div className="itemcard-details-price">${product.price}</div>
             <div className="itemcard-details-rate">
               <ReactStars
                 count={5}
-                value={product.rating?.rate}
+                value={product.rate}
                 size={20}
                 edit={false}
               />

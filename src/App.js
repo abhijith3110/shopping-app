@@ -6,7 +6,7 @@ import Footer from "./components/Footer/Footer.jsx";
 import Header from "./components/Header/Header";
 import SubBanner from "./components/SubBanner/SubBanner.jsx";
 import TopPicks from "./components/TopPicks/TopPicks.jsx";
-import { ItemProvider } from "./layout/CollectionContext/CollectionContext.jsx";
+import { ProductProvider } from "./layout/Contexts/productContext.jsx";
 import { CategoryProvider } from "./layout/Contexts/categoryContext.jsx";
 
 function App() {
@@ -15,11 +15,11 @@ function App() {
             <Header />
             <Banner />
             <CategoryProvider>
-                <ItemProvider>
+                <ProductProvider>
                     <Collections />
                     <Category />
                     <TopPicks />
-                </ItemProvider>
+                </ProductProvider>
             </CategoryProvider>
             <SubBanner />
             <Footer />
