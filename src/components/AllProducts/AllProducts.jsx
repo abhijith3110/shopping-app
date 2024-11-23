@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useLocation } from "react-router-dom";
 import ItemCard from "../ItemCard/ItemCard"
 import "./AllProducts.css"
+import SubBanner from '../SubBanner/SubBanner';
 
 const AllProducts = () => {
 
@@ -44,13 +45,14 @@ const AllProducts = () => {
         <div className='collection-category'>
           <ul>
             <li onClick={() => handleCategory("all")}>ALL</li>
-            <li onClick={() => handleCategory("women")}>WOMEN</li>
-            <li onClick={() => handleCategory("men")}>MEN</li>
+            <li onClick={() => handleCategory("womens")}>WOMEN</li>
+            <li onClick={() => handleCategory("mens")}>MEN</li>
             <li onClick={() => handleCategory("kids")}>KIDS</li>
           </ul>
         </div>
         <div><ItemCard selectedCategory={category} showAll={true} /></div>
       </div>
+      <SubBanner />
     </>
 
 

@@ -10,7 +10,7 @@ const ItemCard = ({ selectedCategory, showAll }) => {
 
   let filteredProducts = [];
 
-  if (selectedCategory === "men") {
+  if (selectedCategory === "mens") {
 
     filteredProducts = product.filter(
 
@@ -18,7 +18,7 @@ const ItemCard = ({ selectedCategory, showAll }) => {
 
     );
 
-  } else if (selectedCategory === "women") {
+  } else if (selectedCategory === "womens") {
 
     filteredProducts = product.filter(
 

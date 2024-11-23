@@ -31,8 +31,8 @@ const Collections = () => {
                 <div className='collection-category'>
                     <ul>
                         <li onClick={() => handleCategory("allFilter")}>ALL</li>
-                        <li onClick={() => handleCategory("women")}>WOMEN</li>
-                        <li onClick={() => handleCategory("men")}>MEN</li>
+                        <li onClick={() => handleCategory("womens")}>WOMEN</li>
+                        <li onClick={() => handleCategory("mens")}>MEN</li>
                         <li onClick={() => handleCategory("kids")}>KIDS</li>
                     </ul>
                 </div>
