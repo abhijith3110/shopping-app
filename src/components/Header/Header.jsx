@@ -1,11 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import "./Header.css"
 
 
 const Header = () => {
 
     const [isFixed, setIsFixed] = useState(false);
+    const navigate = useNavigate()
 
     const handleScroll = () => {
         if (window.scrollY > 50) {
@@ -27,14 +29,14 @@ const Header = () => {
     return (
         <header className={isFixed ? 'fixed' : ''}>
             <div className='header'>
-                <div className='header-logo'>
+                <div className='header-logo' onClick={()=> navigate('/')}>
                     <img src="https://optimal-demos.myshopify.com/cdn/shop/files/dm2-logo.png?v=1632039937" alt="header-logo" />
                 </div>
                 <nav className='header-nav'>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Shop</a></li>
-                        <li><a href="#">Product</a>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/categories">Shop</a></li>
+                        <li><a href="/product">Product</a>
                         <div className='header-sub-nav'>
                         <ul>
                             <li>All</li>

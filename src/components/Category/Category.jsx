@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
 import categoryContext from '../../layout/Contexts/categoryContext';
+import { useNavigate } from 'react-router-dom';
 import "./Category.css";
 
 const Category = () => {
 
     const { category } = useContext(categoryContext);
+    const navigate = useNavigate()
 
     return (
         <div className="category">
@@ -24,7 +26,7 @@ const Category = () => {
                     {category && Array.isArray(category) ? (
                         category.map((item) => (
                             <div className="category-list" key={item._id}>
-                                <div className="category-list-img">
+                                <div className="category-list-img" onClick={()=> navigate('/products')}>
                                     <img src={`http://localhost:4000/uploads/${item.category_image}`} alt={item.name} />
                                 </div>
                                 <div className="category-list-category">
