@@ -46,9 +46,9 @@ const Footer = () => {
           <div className="footer-nav-address">
           <p>Contact Us</p>
             <ul>
-                <li><i class="fa-solid fa-location-dot" style={{color:"green"}}></i>55 Gallaxy Enque, 2568 steet, 23568 NY</li>
-                <li><i class="fa-solid fa-phone" style={{color:"yellow"}}></i>Phone: (440) 000 000 0000</li>
-                <li><i class="fa-regular fa-envelope" style={{color:"red"}}></i>Email: sales@yousite.com</li>
+                <li><i className="fa-solid fa-location-dot" style={{color:"green"}}></i>55 Gallaxy Enque, 2568 steet, 23568 NY</li>
+                <li><i className="fa-solid fa-phone" style={{color:"yellow"}}></i>Phone: (440) 000 000 0000</li>
+                <li><i className="fa-regular fa-envelope" style={{color:"red"}}></i>Email: sales@yousite.com</li>
                 <div className="social-icons">
                    <div>
                    <i className="fa-brands fa-facebook" style={{color:"blue"}}></i>

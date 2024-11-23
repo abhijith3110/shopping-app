@@ -40,7 +40,7 @@ const ItemCard = ({ selectedCategory, showAll }) => {
   return (
     <div className="itemcards">
       {itemToDisplay.map((product) => (
-        <div className="itemcard" key={product.id}>
+        <div className="itemcard" key={product._id}>
           <div className="itemcard-img">
             <img src={`http://localhost:4000/uploads/${product.product_image}`} alt="img" />
           </div>
@@ -52,7 +52,7 @@ const ItemCard = ({ selectedCategory, showAll }) => {
             <div className="itemcard-details-rate">
               <ReactStars
                 count={5}
-                value={product.rate}
+                value={product.rate || 0}
                 size={20}
                 edit={false}
               />

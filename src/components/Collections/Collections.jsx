@@ -5,7 +5,7 @@ import ViewCollection from '../ViewCollection/ViewCollection'
 
 const Collections = () => {
 
-    const [category, setCategory] = useState('all')
+    const [category, setCategory] = useState('allFilter')
     const [showAll, setShowAll] = useState(false)
 
     const handleCategory = (category) => {

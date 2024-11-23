@@ -23,7 +23,7 @@ const Category = () => {
                 <div className="category-lists">
                     {category && Array.isArray(category) ? (
                         category.map((item) => (
-                            <div className="category-list" key={item.id}>
+                            <div className="category-list" key={item._id}>
                                 <div className="category-list-img">
                                     <img src={`http://localhost:4000/uploads/${item.category_image}`} alt={item.name} />
                                 </div>

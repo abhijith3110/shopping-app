@@ -15,9 +15,7 @@ export const ProductProvider = ({ children }) => {
                 }
                 const data = await response.json();
                 setProduct(data.data);
-                console.log(data.data);
-                
-                
+          
             } catch (error) {
                 setError(error.message);
             }
