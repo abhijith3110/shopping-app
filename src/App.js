@@ -7,19 +7,22 @@ import Header from "./components/Header/Header";
 import SubBanner from "./components/SubBanner/SubBanner.jsx";
 import TopPicks from "./components/TopPicks/TopPicks.jsx";
 import { ItemProvider } from "./layout/CollectionContext/CollectionContext.jsx";
+import { CategoryProvider } from "./layout/Contexts/categoryContext.jsx";
 
 function App() {
     return (
         <div className="App">
             <Header />
             <Banner />
-            <ItemProvider>
-                <Collections />
-                <Category />
-                <TopPicks />
-            </ItemProvider>
+            <CategoryProvider>
+                <ItemProvider>
+                    <Collections />
+                    <Category />
+                    <TopPicks />
+                </ItemProvider>
+            </CategoryProvider>
             <SubBanner />
-            <Footer/>
+            <Footer />
         </div>
     );
 }
