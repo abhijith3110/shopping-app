@@ -10,21 +10,33 @@ const Header = () => {
     const navigate = useNavigate()
 
     const handleScroll = () => {
+
         if (window.scrollY > 50) {
+
             setIsFixed(true);
+
         } else {
+
             setIsFixed(false);
         }
+
     };
 
-
     useEffect(() => {
+
         window.addEventListener('scroll', handleScroll);
 
         return () => {
+            
             window.removeEventListener('scroll', handleScroll);
         };
+
     }, []);
+
+    const handleCategoryNavigation = (category) => {
+
+        navigate(`/products?category=${category}#collection-category`);
+    }
 
     return (
         <header className={isFixed ? 'fixed' : ''}>
@@ -36,15 +48,15 @@ const Header = () => {
                     <ul>
                         <li><a href="/">Home</a></li>
                         <li><a href="/categories">Shop</a></li>
-                        <li><a href="/product">Product</a>
-                        <div className='header-sub-nav'>
-                        <ul>
-                            <li>All</li>
-                            <li>Mens</li>
-                            <li>Womens</li>
-                            <li>Jewellery</li>
-                        </ul>
-                        </div>
+                        <li><a>Product</a>
+                            <div className='header-sub-nav'>
+                                <ul>
+                                    <li onClick={() => handleCategoryNavigation("all")}>All</li>
+                                    <li onClick={() => handleCategoryNavigation("men")}>Mens</li>
+                                    <li onClick={() => handleCategoryNavigation("women")}>Womens</li>
+                                    <li onClick={() => handleCategoryNavigation("kids")}>Kids</li>
+                                </ul>
+                            </div>
                         </li>
                     </ul>
                 </nav>

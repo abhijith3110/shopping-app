@@ -9,29 +9,53 @@ const ItemCard = ({ selectedCategory, showAll }) => {
 
 
   let filteredProducts = [];
+
   if (selectedCategory === "men") {
+
     filteredProducts = product.filter(
+
       (product) => product.category.name === "mens"
+
     );
+
   } else if (selectedCategory === "women") {
+
     filteredProducts = product.filter(
+
       (product) => product.category.name === "womens"
+
     );
+
   } else if (selectedCategory === "kids") {
+
     filteredProducts = product.filter(
+
       (product) => product.category.name === "kids"
+
     );
+
   } else if (selectedCategory === "allFilter") {
+
     const menProducts = product
       .filter((product) => product.category.name === "mens")
       .slice(2, 3);
+
     const womenProducts = product
       .filter((product) => product.category.name === "womens")
       .slice(2, 3)
+
     const kidsProducts = product
       .filter((product) => product.category.name === "kids")
       .slice(2, 4);
+
     filteredProducts = [...menProducts, ...womenProducts, ...kidsProducts];
+    
+  } else if (selectedCategory === "all") {
+
+    const products = product.map((product) => product)
+
+    filteredProducts = [...products]
+    
   }
 
 

@@ -1,0 +1,38 @@
+@font-face {
+    font-family: "playfair";
+    src: url("../../../public/assets/fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf") format("truetype");
+  }
+
+.all-product {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("https://static.vecteezy.com/system/resources/previews/004/299/813/non_2x/online-shopping-on-phone-buy-sell-business-digital-web-banner-application-money-advertising-payment-ecommerce-illustration-search-vector.jpg");
+    width: 100%;
+    height: 450px;
+}
+
+.all-product-container {
+    margin: 0 auto;
+    padding: 0 15px;
+    max-width: 1200px;
+}
+
+.all-product-banner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 50px 0px;
+}
+
+.all-product-sub-heading p {
+    max-width: 500px;
+    text-align: center;
+    line-height: 25px;
+    font-size: 17px;
+}
+
+.all-product-heading {
+    font-family: "playfair",sans-serif;
+}
