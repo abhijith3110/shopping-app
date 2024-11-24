@@ -52,8 +52,8 @@ const Header = () => {
                             <div className='header-sub-nav'>
                                 <ul>
                                     <li onClick={() => handleCategoryNavigation("all")}>All</li>
-                                    <li onClick={() => handleCategoryNavigation("men")}>Mens</li>
-                                    <li onClick={() => handleCategoryNavigation("women")}>Womens</li>
+                                    <li onClick={() => handleCategoryNavigation("mens")}>Mens</li>
+                                    <li onClick={() => handleCategoryNavigation("womens")}>Womens</li>
                                     <li onClick={() => handleCategoryNavigation("kids")}>Kids</li>
                                 </ul>
                             </div>
@@ -70,8 +70,8 @@ const Header = () => {
                     <div className='header-icon'>
                         <i className="fa-solid fa-cart-shopping"></i>
                     </div>
-                    <div className='header-icon'>
-                        <i className="fa-solid fa-bars"></i>
+                    <div className='header-login-btn'>
+                        <button onClick={()=> navigate('/login')}>Login</button>
                     </div>
                 </div>
             </div>

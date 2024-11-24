@@ -19,6 +19,7 @@ header.fixed {
     max-width: 1300px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .header-logo img {
@@ -63,8 +64,9 @@ header.fixed {
 
 .header-icons {
     display: flex;
-    gap: 20px;
     cursor: pointer;
+    align-items: center;
+    gap: 40px;
 }
 
 .header-icons i:hover{
@@ -100,4 +102,20 @@ header.fixed {
     justify-content: center;
     align-items: center;
     padding: 0;
+}
+
+.header-login-btn button{
+
+    background: #000;
+    color: #fff;
+    padding: 8px 40px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    border: 1px solid #000;
+}
+
+.header-login-btn button:hover{
+    background:  #ffffff;
+    color: #000;
 }
