@@ -73,6 +73,10 @@ header.fixed {
     color: rgb(255, 192, 203)
 }
 
+.header-icons i{
+    font-size: 18px;
+}
+
 .header-sub-nav{
     opacity: 0;
     visibility: hidden;
@@ -118,4 +122,15 @@ header.fixed {
 .header-login-btn button:hover{
     background:  #ffffff;
     color: #000;
+}
+
+.header-user-img {
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.header-user-img img {
+    width: 100%;
 }

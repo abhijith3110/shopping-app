@@ -9,23 +9,29 @@ import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import Login from "../components/Login/Login.jsx";
 import Register from "../components/Register/Register";
+import UserProfile from "../components/UserProfile/UserProfile.jsx";
+import { UserProvider } from "../layout/Contexts/userContext.jsx";
 
 const MyRoutes = () => {
   const location = useLocation();
-  const isLoginUser = location.pathname === "/register" || location.pathname === "/login";
+  const isLoginUser =
+    location.pathname === "/register" || location.pathname === "/login";
 
   return (
     <CategoryProvider>
       <ProductProvider>
-        {!isLoginUser && <Header />}
-        <Routes>
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/" element={<App />} />
-          <Route path="/categories" element={<Allcategories />} />
-          <Route path="/products" element={<AllProducts />} />
-        </Routes>
-        {!isLoginUser && <Footer />}
+        <UserProvider>
+          {!isLoginUser && <Header />}
+          <Routes>
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/" element={<App />} />
+            <Route path="/user/:id" element={<UserProfile />} />
+            <Route path="/categories" element={<Allcategories />} />
+            <Route path="/products" element={<AllProducts />} />
+          </Routes>
+          {!isLoginUser && <Footer />}
+        </UserProvider>
       </ProductProvider>
     </CategoryProvider>
   );

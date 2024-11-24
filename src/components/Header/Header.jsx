@@ -1,11 +1,14 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import {userContext} from '../../layout/Contexts/userContext';
 import "./Header.css"
 
 
 const Header = () => {
 
+    const { userData } = useContext(userContext);
+    
     const [isFixed, setIsFixed] = useState(false);
     const navigate = useNavigate()
 
@@ -38,6 +41,10 @@ const Header = () => {
         navigate(`/products?category=${category}#collection-category`);
     }
 
+    useEffect(() => {
+        console.log(userData); // Check if user data is being loaded correctly
+    }, [userData]);
+
     return (
         <header className={isFixed ? 'fixed' : ''}>
             <div className='header'>
@@ -61,11 +68,13 @@ const Header = () => {
                     </ul>
                 </nav>
                 <div className='header-icons'>
-                    <div className='header-icon'>
-                        <i className="fa-solid fa-magnifying-glass"></i>
-                    </div>
-                    <div className='header-icon'>
-                        <i className="fa-regular fa-user"></i>
+                    <div className='header-icon header-user-img'>
+                    {userData && userData.image ? (
+                            <img src={`http://localhost:4000/uploads/${userData.image}`} alt="User" />
+
+                        ) : (
+                            <i className="fa-solid fa-user"></i> 
+                        )}
                     </div>
                     <div className='header-icon'>
                         <i className="fa-solid fa-cart-shopping"></i>

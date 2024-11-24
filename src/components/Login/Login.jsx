@@ -31,11 +31,20 @@ const Login = () => {
 
       const data = await response.json();
       setMessage("Login successful!");
-      Cookies.set("token", data.access_token, {
+      console.log(data);
+      
+      Cookies.set("token", data.access_token,{
         path: "/",
         expires: 1,
         secure: true,
       });
+
+      Cookies.set("user", data.data,{
+        path: "/",
+        expires: 1,
+        secure: true,
+      });
+
       navigate("/");
     } catch (err) {
       setError(err.message);
