@@ -19,12 +19,17 @@ const Resigter = () => {
           <div className='register-card-heading'><h1>Sign Up</h1></div>
           <div className='register-card-form-input'>
             <form action="">
-              <div className='register-form-input'>
-                <div className='register-form-label'>
-                  <input type="file" onChange={handleChange} />
-                  <img src={file} alt='' />
+              <div className="register-form-input-img">
+                <div className="register-form-label-img">
+                  {file ? (
+                    <img src={file} alt="Uploaded preview" />
+                  ) : (
+                    <img src="https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg" alt="Placeholder" />
+                  )}
+                  <input type="file" id="file-input" onChange={handleChange} />
+                  <label htmlFor="file-input">Choose Image</label>
                 </div>
-               </div>
+              </div>
               <div className='register-form-input'>
                 <div className='register-form-label'>
                   <label htmlFor="">First Name</label>

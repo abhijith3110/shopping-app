@@ -26,7 +26,7 @@ const MyRoutes = () => {
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path="/" element={<App />} />
-            <Route path="/user/:id" element={<UserProfile />} />
+            <Route path="/user" element={<UserProfile />} />
             <Route path="/categories" element={<Allcategories />} />
             <Route path="/products" element={<AllProducts />} />
           </Routes>

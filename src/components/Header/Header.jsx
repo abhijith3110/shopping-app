@@ -68,7 +68,7 @@ const Header = () => {
                     </ul>
                 </nav>
                 <div className='header-icons'>
-                    <div className='header-icon header-user-img'>
+                    <div className='header-icon header-user-img' onClick={()=> navigate('/user')}>
                     {userData && userData.image ? (
                             <img src={`http://localhost:4000/uploads/${userData.image}`} alt="User" />
 
@@ -79,8 +79,8 @@ const Header = () => {
                     <div className='header-icon'>
                         <i className="fa-solid fa-cart-shopping"></i>
                     </div>
-                    <div className='header-login-btn'>
-                        <button onClick={()=> navigate('/login')}>Login</button>
+                    <div className='header-login-btn'onClick={()=> navigate('/login')}>
+                        <button>Login</button>
                     </div>
                 </div>
             </div>
