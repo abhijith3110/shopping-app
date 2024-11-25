@@ -1,9 +1,19 @@
 import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 import { userContext } from "../../layout/Contexts/userContext";
 import "./UserProfile.css";
 
 const UserProfile = () => {
-  const { userData } = useContext(userContext);
+
+  const navigate = useNavigate()
+  const { userData, setUserData } = useContext(userContext);
+
+  const handleLogout = () => {
+    Cookies.remove("token"); 
+    setUserData(null)
+    navigate("/"); 
+  };
 
   return (
     <div className="user-profile">
@@ -13,7 +23,7 @@ const UserProfile = () => {
             <img
               src={`http://localhost:4000/uploads/${userData.image}`}
               alt={`${userData.first_name}'s profile`}
-            />
+            style={{width:"100px",height:"100px"}}/>
           ) : (
             <div className="placeholder-image">No Image</div>
           )}
@@ -28,7 +38,9 @@ const UserProfile = () => {
           <p><strong><i class="fa-solid fa-location-dot"></i>: </strong> {userData?.address}</p>
         </div>
         <div>
-          <h1>Your Orders</h1>
+        <button className="logout-button" onClick={handleLogout}>
+            Logout
+          </button>
         </div>
       </div>
     </div>
