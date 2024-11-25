@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
+import { userContext } from "../../layout/Contexts/userContext"
 import "./Login.css";
 
 const Login = () => {
+
   const navigate = useNavigate();
+  const { fetchUser } = useContext(userContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
@@ -51,26 +54,22 @@ const Login = () => {
       }
 
       const data = await response.json();
-
       Cookies.set("token", data.access_token, {
         path: "/",
         expires: 1,
         secure: true,
       });
 
-      Cookies.set("user", data.data, {
-        path: "/",
-        expires: 1,
-        secure: true,
-      });
-
+      await fetchUser();
       navigate("/");
+
     } catch (err) {
       setError(err.message);
     } finally {
       setLoading(false);
     }
   };
+
 
   return (
     <div className="login">
