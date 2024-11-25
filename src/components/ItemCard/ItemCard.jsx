@@ -38,15 +38,15 @@ const ItemCard = ({ selectedCategory, showAll }) => {
 
     const menProducts = product
       .filter((product) => product.category.name === "mens")
-      .slice(2, 3);
+      .slice(1,2);
 
     const womenProducts = product
       .filter((product) => product.category.name === "womens")
-      .slice(2, 3)
+      .slice(0, 2)
 
     const kidsProducts = product
       .filter((product) => product.category.name === "kids")
-      .slice(2, 4);
+      .slice(2,3);
 
     filteredProducts = [...menProducts, ...womenProducts, ...kidsProducts];
     

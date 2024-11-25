@@ -11,6 +11,7 @@ import Login from "../components/Login/Login.jsx";
 import Register from "../components/Register/Register";
 import UserProfile from "../components/UserProfile/UserProfile.jsx";
 import { UserProvider } from "../layout/Contexts/userContext.jsx";
+import Cart from "../components/Cart/Cart.jsx";
 
 const MyRoutes = () => {
   const location = useLocation();
@@ -29,6 +30,7 @@ const MyRoutes = () => {
             <Route path="/user" element={<UserProfile />} />
             <Route path="/categories" element={<Allcategories />} />
             <Route path="/products" element={<AllProducts />} />
+            <Route path="/cart" element={<Cart />} />
           </Routes>
           {!isLoginUser && <Footer />}
         </UserProvider>
