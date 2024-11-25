@@ -22,9 +22,9 @@ const Resigter = () => {
               <div className="register-form-input-img">
                 <div className="register-form-label-img">
                   {file ? (
-                    <img src={file} alt="Uploaded preview" />
+                    <img src={file} alt="img" />
                   ) : (
-                    <img src="https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg" alt="Placeholder" />
+                    <img src="https://st2.depositphotos.com/5266903/7863/i/450/depositphotos_78639212-stock-photo-user-flat-black-and-white.jpg" alt="img" />
                   )}
                   <input type="file" id="file-input" onChange={handleChange} />
                   <label htmlFor="file-input">Choose Image</label>

@@ -8,13 +8,34 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
-  const [message, setMessage] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [validationError, setValidationError] = useState({});
+
+
+  const handleValidation = () => {
+    const errors = {};
+
+    if (!email.trim()) {
+      errors.email = "Email is required.";
+    }
+
+    if (!password.trim()) {
+      errors.password = "Password is required.";
+    }
+
+    setValidationError(errors);
+
+    return Object.keys(errors).length === 0;
+  };
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError(null);
+
+    if (!handleValidation()) {
+      return;
+    }
 
     try {
       const response = await fetch("http://localhost:4000/api/v1/user/login", {
@@ -30,16 +51,14 @@ const Login = () => {
       }
 
       const data = await response.json();
-      setMessage("Login successful!");
-      console.log(data);
-      
-      Cookies.set("token", data.access_token,{
+
+      Cookies.set("token", data.access_token, {
         path: "/",
         expires: 1,
         secure: true,
       });
 
-      Cookies.set("user", data.data,{
+      Cookies.set("user", data.data, {
         path: "/",
         expires: 1,
         secure: true,
@@ -72,8 +91,7 @@ const Login = () => {
           <div className="login-card-form">
             <div className="login-card-heading">
               <h1>Login</h1>
-              {message && <p className="success-message">{message}</p>}
-              {error && <p className="error-message">{error}</p>}
+              {error && <p className="login-error-message">{error}</p>}
             </div>
             <div className="login-card-form-input">
               <form>
@@ -87,6 +105,9 @@ const Login = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     required
                   />
+                  {validationError.email && (
+                    <p className="login-validation-message">{validationError.email}</p>
+                  )}
                 </div>
                 <div className="login-form-input">
                   <label>Password</label>
@@ -97,6 +118,9 @@ const Login = () => {
                     onChange={(e) => setPassword(e.target.value)}
                     required
                   />
+                  {validationError.password && (
+                    <p className="login-validation-message">{validationError.password}</p>
+                  )}
                 </div>
               </form>
             </div>
