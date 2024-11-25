@@ -7,7 +7,6 @@ const ItemCard = ({ selectedCategory, showAll }) => {
 
   const { product } = useContext(ProductContext);
 
-
   let filteredProducts = [];
 
   if (selectedCategory === "mens") {
@@ -58,7 +57,6 @@ const ItemCard = ({ selectedCategory, showAll }) => {
     
   }
 
-
   const itemToDisplay = showAll? filteredProducts: filteredProducts.slice(0, 4);
 
   return (
@@ -71,6 +69,8 @@ const ItemCard = ({ selectedCategory, showAll }) => {
           <div className="itemcard-details">
             <div className="itemcard-details-title">
               <p>{product.name}</p>
+            </div>
+            <div>
             </div>
             <div className="itemcard-details-price">${product.price}</div>
             <div className="itemcard-details-rate">

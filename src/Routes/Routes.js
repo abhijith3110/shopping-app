@@ -12,6 +12,7 @@ import Register from "../components/Register/Register";
 import UserProfile from "../components/UserProfile/UserProfile.jsx";
 import { UserProvider } from "../layout/Contexts/userContext.jsx";
 import Cart from "../components/Cart/Cart.jsx";
+import { CartProvider } from "../layout/Contexts/addToCart.jsx";
 
 const MyRoutes = () => {
   const location = useLocation();
