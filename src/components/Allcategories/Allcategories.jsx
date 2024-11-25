@@ -14,6 +14,8 @@ const Allcategories = () => {
     navigate(`/products?category=${category}#collection-category`);
 }
 
+//progress
+
   return (
 
     <>
