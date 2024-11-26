@@ -8,33 +8,39 @@ const Cart = () => {
 
   useEffect(() => {
     if (userData?.cart) {
-      const initialQuantities = userData.cart.reduce((acc, item) => {
-        acc[item._id] = item.quantity;
-        return acc;
-      }, {});
+      const initialQuantities = {};
+      for (const item of userData.cart) {
+        initialQuantities[item._id] = item.quantity;
+      }
       setQuantities(initialQuantities);
     }
   }, [userData]);
 
   const handleIncreaseQuantity = (id) => {
-    setQuantities((prevQuantities) => ({
-      ...prevQuantities,
-      [id]: prevQuantities[id] + 1,
-    }));
+    setQuantities((prev) => {
+      const updatedQuantities = { ...prev };
+      updatedQuantities[id] = (updatedQuantities[id] || 0) + 1;
+      return updatedQuantities;
+    });
   };
 
   const handleDecreaseQuantity = (id) => {
-    setQuantities((prevQuantities) => ({
-      ...prevQuantities,
-      [id]: Math.max(prevQuantities[id] - 1, 1),
-    }));
-  };
+    setQuantities((prev) => {
+      const updatedQuantities = { ...prev };
+      updatedQuantities[id] = Math.max((updatedQuantities[id] || 0) - 1, 1);
+      return updatedQuantities;
+    });
+  }
 
-  const grandTotal = userData?.cart?.reduce((total, item) => {
-    const itemTotal =
-      item.product.price * (quantities[item._id] || item.quantity);
-    return total + itemTotal;
-  }, 0);
+  let grandTotal = 0;
+
+  if (userData?.cart) {
+    for (const item of userData.cart) {
+      const itemTotal = item.product.price * (quantities[item._id] || item.quantity);
+      grandTotal += itemTotal;
+    }
+  }
+
 
   return (
     <div className="cart">
@@ -56,8 +62,8 @@ const Cart = () => {
           </thead>
           <tbody>
             {userData &&
-            Array.isArray(userData.cart) &&
-            userData.cart.length > 0 ? (
+              Array.isArray(userData.cart) &&
+              userData.cart.length > 0 ? (
               userData.cart.map((item) => (
                 <tr key={item._id}>
                   <td className="cart-product-image-name">
@@ -70,7 +76,7 @@ const Cart = () => {
                       <p>{item.product.name}</p>
                     </div>
                   </td>
-                  <td className="cart-product-price">$ {item.product.price}</td>
+                  <td className="cart-product-price">$ {item.product.price || 0}</td>
                   <td className="quantity-count">
                     <div className="quantity-buttons">
                       <button onClick={() => handleDecreaseQuantity(item._id)}>

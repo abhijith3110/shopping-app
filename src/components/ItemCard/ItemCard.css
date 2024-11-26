@@ -34,10 +34,16 @@
   transform: scale(1.2);
 }
 
-.itemcard-details-title,
-.itemcard-details-price {
-  font-size: 15px;
-  font-weight: 400;
+.itemcard-details-title {
+  font-size: 18px;
+  font-weight: 500;
+  width: 300px;
+  text-align: center;
+}
+
+.itemcard-details-price{
+  font-size: 18px;
+  font-weight: 300;
   width: 300px;
   text-align: center;
 }
@@ -51,8 +57,26 @@
 .itemcard-details-rate {
   display: flex;
   justify-content: center;
+  margin-left: 80px;
 }
 
+.add-to-cart-btn {
+  display: flex;
+  justify-content: center;
+}
+ 
+.add-to-cart-btn button {
+  border: none;
+  background-color: transparent;
+  font-size: 24px;
+  color: blueviolet;
+  cursor: pointer;
+}
+
+.item-card-price-cart{
+  display: flex;
+  justify-content: space-around;
+}
 
 @media screen and (max-width: 748px) {
   
