@@ -1,0 +1,163 @@
+@font-face {
+    font-family: "playfair";
+    src: url("../../../public/assets/fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf") format("truetype");
+  }
+
+
+.user-profile {
+    display: flex;
+    justify-content: center;
+    padding: 100px;
+    background-color: #ddd;
+  }
+  
+  .profile-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    width: 100%;
+    min-height: 50vh;
+    padding: 50px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex-direction: row;
+  }
+  
+  .profile-section {
+    flex: 1;
+    border-right: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .profile-image {
+    overflow: hidden;
+    width: 100px;
+    height: 100px;
+    display: flex;
+}
+
+.profile-image img {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+  }
+  
+  .placeholder-image {
+    color: #fff;
+    background-color: #888;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .profile-details{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .profile-details h1 {
+    font-size: 24px;
+    font-family: "playfair",sans-serif;
+  }
+  
+  .profile-details p {
+    font-size: 16px;
+  }
+  
+  .profile-details i {
+    margin-right: 8px;
+  }
+  
+  .logout-button button{
+    background-color: #ff4f5b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .logout-button button:hover {
+    background-color: #e04349;
+  }
+  
+  .order-section {
+    flex: 2;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .user-order-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .user-order-list h2 {
+    font-size: 24px;
+    font-family: "playfair",sans-serif;
+  }
+  
+  .user-order-list ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .user-order-list li {
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  @media screen and (max-width: 800px){
+    
+    .profile-container{
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .profile-section {
+        border: none;
+    }
+
+    .order-section {
+        flex: 1;
+        width: 100%;
+  }
+
+  .profile-section{
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .profile-image img {
+    border-radius: 0%;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+  }
+  
+  .placeholder-image {
+    color: #fff;
+    background-color: #888;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+}
+  

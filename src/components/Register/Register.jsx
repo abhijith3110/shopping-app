@@ -5,7 +5,7 @@ import "./Register.css";
 const Resigter = () => {
   const navigate = useNavigate();
   const [file, setFile] = useState();
-  const [error, setError] = useState(null);
+  const [, setError] = useState(null);
   const [userData, setUserData] = useState({
     first_name: "",
     last_name: "",
