@@ -1,10 +1,14 @@
 import React, { useContext, useState, useEffect } from "react";
 import { userContext } from "../../layout/Contexts/userContext";
+import Cookies from "js-cookie";
+import { jwtDecode } from "jwt-decode";
 import "./Cart.css";
 
 const Cart = () => {
-  const { userData } = useContext(userContext);
+  
+  const { userData, fetchUser } = useContext(userContext);
   const [quantities, setQuantities] = useState({});
+  const [, setError] = useState(null)
 
   useEffect(() => {
     if (userData?.cart) {
@@ -16,21 +20,64 @@ const Cart = () => {
     }
   }, [userData]);
 
-  const handleIncreaseQuantity = (id) => {
+
+  const cartItemCountUpdate = async (updatedQuantities) => {
+    try {
+      setError(null);
+  
+      const token = Cookies.get("token");
+      const decodedToken = jwtDecode(token);
+      const userId = decodedToken.id;
+
+      const updatedCart = userData.cart.map((item) => {
+      const newQuantity = updatedQuantities[item._id] || item.quantity; 
+
+        return {
+          _id: item._id,
+          product: item.product._id,  
+          quantity: newQuantity,
+        };
+      });
+  
+
+      const response = await fetch(`http://localhost:4000/api/v1/user/${userId}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ cart: updatedCart }), 
+      });
+  
+      if (!response.ok) {
+        throw new Error("Error updating product quantities in the cart.");
+      }
+  
+      await fetchUser();
+    } catch (err) {
+      setError(err.message);
+      console.error("Error:", err);
+    }
+  };
+  
+  const handleIncreaseQuantity = async (id) => {
     setQuantities((prev) => {
       const updatedQuantities = { ...prev };
       updatedQuantities[id] = (updatedQuantities[id] || 0) + 1;
+      cartItemCountUpdate(updatedQuantities); 
       return updatedQuantities;
     });
   };
-
-  const handleDecreaseQuantity = (id) => {
+  
+  const handleDecreaseQuantity = async (id) => {
     setQuantities((prev) => {
       const updatedQuantities = { ...prev };
       updatedQuantities[id] = Math.max((updatedQuantities[id] || 0) - 1, 1);
+      cartItemCountUpdate(updatedQuantities);
       return updatedQuantities;
     });
-  }
+  };
+  
 
   let grandTotal = 0;
 
@@ -39,6 +86,38 @@ const Cart = () => {
       const itemTotal = item.product.price * (quantities[item._id] || item.quantity);
       grandTotal += itemTotal;
     }
+  }
+
+  const deleteCartItem = async (cartID) => {
+
+    try {
+
+      const token = Cookies.get("token");
+      const decodedToken = jwtDecode(token);
+      const userId = decodedToken.id;
+      
+      const response = await fetch(`http://localhost:4000/api/v1/user/cart/${userId}/`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ cartId: cartID }),
+      });
+      
+
+      if (!response.ok) {
+
+        throw new Error("Failed to delete cart data.");
+      }
+
+      await fetchUser()
+
+    } catch (error) {
+      setError(error.message);
+
+    }
+
   }
 
 
@@ -95,7 +174,7 @@ const Cart = () => {
                   </td>
                   <td>
                     {" "}
-                    <i class="fa-solid fa-trash"></i>
+                    <i class="fa-solid fa-trash" onClick={()=>deleteCartItem(item._id)}></i>
                   </td>
                 </tr>
               ))
