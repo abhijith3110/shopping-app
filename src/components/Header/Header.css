@@ -134,3 +134,18 @@ header.fixed {
 .header-user-img img {
     width: 100%;
 }
+
+.header-icon-cart{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+}
+
+.header-icon-cart p{
+    border-radius: 50%;
+    padding: 4px 10px;
+    color:rgb(255, 255, 255) ;
+    background: #000;
+}

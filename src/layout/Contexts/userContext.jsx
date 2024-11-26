@@ -40,12 +40,52 @@ export const UserProvider = ({ children }) => {
     }
   };
 
+
+  const addToCart = async (cartItem) => {
+    setError(null);
+
+    const token = Cookies.get("token");
+
+    if (!token) {
+      console.error("No token found. Please log in.");
+      return;
+    }
+
+    const decodedToken = jwtDecode(token);
+    const userId = decodedToken.id;
+
+    try {
+      const response = await fetch(
+        `http://localhost:4000/api/v1/user/${userId}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            cart: [cartItem],
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Error uploading products to the cart");
+      }
+
+      await fetchUser();
+    } catch (err) {
+      setError(err.message);
+      console.error("Error:", err);
+    }
+  };
+
   useEffect(() => {
     fetchUser();
   }, []);
 
   return (
-    <userContext.Provider value={{ userData, error, fetchUser }}>
+    <userContext.Provider value={{ userData, error, fetchUser, setUserData, addToCart }}>
       {children}
     </userContext.Provider>
   );
