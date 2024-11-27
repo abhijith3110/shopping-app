@@ -57,7 +57,6 @@
 .itemcard-details-rate {
   display: flex;
   justify-content: center;
-  margin-left: 80px;
 }
 
 .add-to-cart-btn {
@@ -71,6 +70,16 @@
   font-size: 24px;
   color: rgb(101, 101, 101);
   cursor: pointer;
+}
+
+.item-card-whishlist i {
+  font-size: 24px;
+  color: rgb(101, 101, 101);
+}
+
+.item-card-whishlist span {
+  font-size: 24px;
+  color: rgb(255, 0, 0);
 }
 
 .item-card-price-cart{

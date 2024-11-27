@@ -80,12 +80,90 @@ export const UserProvider = ({ children }) => {
     }
   };
 
+
+  const addToWishlist = async (productId) => {
+
+    setError(null);
+
+    const token = Cookies.get("token");
+
+    if (!token) {
+
+      console.error("No token found. Please log in.");
+      return;
+    }
+
+    const decodedToken = jwtDecode(token);
+    const userId = decodedToken.id;
+
+    try {
+      const response = await fetch(
+        `http://localhost:4000/api/v1/user/wishlist/${userId}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            wishlist: [productId],
+          }),
+        }
+      );
+
+      if (!response.ok) {
+
+        throw new Error("Error uploading products to the whishlist");
+      }
+
+      await fetchUser();
+
+    } catch (err) {
+
+      setError(err.message);
+      console.error("Error:", err);
+    }
+  };
+
+
+  const deleteWishlistProduct = async (productID) => {
+
+    try {
+
+      const token = Cookies.get("token");
+      const decodedToken = jwtDecode(token);
+      const userId = decodedToken.id;
+      
+      const response = await fetch(`http://localhost:4000/api/v1/user/wishlist/${userId}/`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ productID: productID }),
+      });
+      
+
+      if (!response.ok) {
+
+        throw new Error("Failed to delete data.");
+      }
+
+      await fetchUser()
+
+    } catch (error) {
+      setError(error.message);
+
+    }
+
+  }
+
   useEffect(() => {
     fetchUser();
   }, []);
 
   return (
-    <userContext.Provider value={{ userData, error, fetchUser, setUserData, addToCart }}>
+    <userContext.Provider value={{ userData, error, fetchUser, setUserData, addToCart, addToWishlist, deleteWishlistProduct }}>
       {children}
     </userContext.Provider>
   );

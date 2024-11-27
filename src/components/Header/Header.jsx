@@ -43,7 +43,6 @@ const Header = () => {
     }
 
     useEffect(() => {
-        console.log(userData);
     }, [userData]);
 
 

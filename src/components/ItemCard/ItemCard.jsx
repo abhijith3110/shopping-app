@@ -6,7 +6,7 @@ import "./ItemCard.css";
 
 const ItemCard = ({ selectedCategory, showAll }) => {
   const { product } = useContext(ProductContext);
-  const { addToCart, error } = useContext(userContext);
+  const { addToCart, error, addToWishlist, userData, deleteWishlistProduct } = useContext(userContext);
 
   let filteredProducts = [];
 
@@ -59,6 +59,21 @@ const ItemCard = ({ selectedCategory, showAll }) => {
 
             <div className="itemcard-details-price">${product.price}</div>
             <div className="item-card-price-cart">
+              <div className="item-card-whishlist">
+                {userData && userData.wishlist ? (
+                  userData.wishlist.includes(product._id) ? (
+                    <span
+                      className="fa-solid fa-heart"
+                      onClick={()=>deleteWishlistProduct(product._id)}
+                    ></span>
+                  ) : (
+                    <i
+                      className="fa-regular fa-heart"
+                      onClick={() => addToWishlist(product._id)}
+                    ></i>
+                  )
+                ) : null}
+              </div>
               <div className="itemcard-details-rate">
                 <ReactStars
                   count={5}
@@ -68,14 +83,17 @@ const ItemCard = ({ selectedCategory, showAll }) => {
                 />
               </div>
               <div className="add-to-cart-btn">
-                <button onClick={() => addToCart({
-                  product: {
-                    _id: product._id,
-                  },
-                  quantity: 1,
-                })
-                }>
-                  <i class="fa-solid fa-cart-plus"></i>
+                <button
+                  onClick={() =>
+                    addToCart({
+                      product: {
+                        _id: product._id,
+                      },
+                      quantity: 1,
+                    })
+                  }
+                >
+                  <i className="fa-solid fa-cart-plus"></i>
                 </button>
               </div>
             </div>
