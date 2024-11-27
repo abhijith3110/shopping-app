@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { userContext } from "../../layout/Contexts/userContext";
 import Cookies from "js-cookie";
 import { jwtDecode } from "jwt-decode";
+import { loadStripe } from "@stripe/stripe-js";
 import "./Cart.css";
 
 const Cart = () => {
@@ -121,6 +122,42 @@ const Cart = () => {
   }
 
 
+  const handlePayment = async () => {
+    try {
+        const token = Cookies.get("token");
+
+        const response = await fetch("http://localhost:4000/api/v1/user/create-checkout-session", {
+            method: "POST",
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ cart: userData.cart }),
+        });
+
+        if (!response.ok) {
+            throw new Error("Failed to create checkout session");
+        }
+
+        const { sessionId } = await response.json();
+        const stripe = await loadStripe('pk_test_51OTIAJSIBQHp4SrpnAMD9ufpg5DJiGLdmzMcNOiCo2KByrnqO7jKDvUJ8Ddvihj6s5nace7mYrm1jjNArTy1yViY00LErcEJBa');
+
+        const { error } = await stripe.redirectToCheckout({
+
+            sessionId: sessionId,
+        });
+
+        if (error) {
+            throw new Error(error.message);
+        }
+
+    } catch (error) {
+        console.error("Error during payment process:", error.message);
+        alert("An error occurred while processing the payment. Please try again.");
+    }
+};
+
+
   return (
     <div className="cart">
       <div className="cart-container">
@@ -191,7 +228,7 @@ const Cart = () => {
             <p>Grand Total: $ {grandTotal}</p>
           </div>
           <div className="checkout-btn">
-            <button>Checkout</button>
+             <button onClick={handlePayment}>Pay Now</button>
           </div>
         </div>
       </div>

@@ -12,7 +12,12 @@ import Register from "../components/Register/Register";
 import UserProfile from "../components/UserProfile/UserProfile.jsx";
 import { UserProvider } from "../layout/Contexts/userContext.jsx";
 import Cart from "../components/Cart/Cart.jsx";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+import SuccessModal from "../components/Modals/SuccessModal.jsx";
+import FailModal from "../components/Modals/FailModal.jsx";
 
+const stripePromise = loadStripe('pk_test_51OTIAJSIBQHp4SrpnAMD9ufpg5DJiGLdmzMcNOiCo2KByrnqO7jKDvUJ8Ddvihj6s5nace7mYrm1jjNArTy1yViY00LErcEJBa');
 
 const MyRoutes = () => {
   const location = useLocation();
@@ -23,17 +28,26 @@ const MyRoutes = () => {
     <CategoryProvider>
       <ProductProvider>
         <UserProvider>
-            {!isLoginUser && <Header />}
-            <Routes>
-              <Route path="/register" element={<Register />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/" element={<App />} />
-              <Route path="/user" element={<UserProfile />} />
-              <Route path="/categories" element={<Allcategories />} />
-              <Route path="/products" element={<AllProducts />} />
-              <Route path="/cart" element={<Cart />} />
-            </Routes>
-            {!isLoginUser && <Footer />}
+          {!isLoginUser && <Header />}
+          <Routes>
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/" element={<App />} />
+            <Route path="/user" element={<UserProfile />} />
+            <Route path="/categories" element={<Allcategories />} />
+            <Route path="/products" element={<AllProducts />} />
+            <Route path="/success" element={<SuccessModal />} />
+            <Route path="/fail" element={<FailModal />} />
+            <Route
+              path="/cart"
+              element={
+                <Elements stripe={stripePromise}>
+                  <Cart />
+                </Elements>
+              }
+            />
+          </Routes>
+          {!isLoginUser && <Footer />}
         </UserProvider>
       </ProductProvider>
     </CategoryProvider>
