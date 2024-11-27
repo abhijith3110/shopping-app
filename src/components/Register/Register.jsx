@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Register.css";
 
 const Resigter = () => {
@@ -150,9 +150,12 @@ const Resigter = () => {
             </form>
           </div>
           <div className="register-btn">
+          <Link to= "/"><button style={{background: "red", border:"none" }}> Cancel</button></Link>
             <button type="submit" onClick={handleSubmit}>Sign Up</button>
-            <p>
-              Already have Account ?<a href="/login"> Login</a>
+          </div>
+          <div className="signup-link">
+          <p>
+              Already have Account ?<Link to="/login"> Login</Link>
             </p>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import { userContext } from "../../layout/Contexts/userContext"
 import "./Login.css";
@@ -74,7 +74,7 @@ const Login = () => {
   return (
     <div className="login">
       <div className="login-container">
-        <div className="login-header">
+        <div className="login-header" onClick={()=> navigate("/")}>
           <img
             src="https://optimal-demos.myshopify.com/cdn/shop/files/dm2-logo.png?v=1632039937"
             alt=""
@@ -126,7 +126,7 @@ const Login = () => {
             <div className="login-btn">
               <button onClick={handleLogin}>{loading ? "Logging in..." : "Login"}</button>
               <p>
-                Don't have a Account ? <a href="/register">Sign up</a>
+                Don't have a Account ? <Link to="/register">Sign up</Link>
               </p>
             </div>
           </div>

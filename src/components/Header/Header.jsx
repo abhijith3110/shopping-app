@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useContext, useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { userContext } from '../../layout/Contexts/userContext';
 import Cookies from "js-cookie";
 import "./Header.css"
@@ -55,8 +55,8 @@ const Header = () => {
                 </div>
                 <nav className='header-nav'>
                     <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/categories">Shop</a></li>
+                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/categories">Shop</Link></li>
                         <li><a>Product</a>
                             <div className='header-sub-nav'>
                                 <ul>
