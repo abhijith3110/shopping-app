@@ -75,7 +75,7 @@ const Header = () => {
                             <img src={`http://localhost:4000/uploads/${userData.image}`} alt="User" />
 
                         ) : (
-                            <i className="fa-solid fa-user"></i>
+                           <img src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_640.png" alt="" />
                         )}
                     </div>
 
@@ -83,9 +83,10 @@ const Header = () => {
                         <i className="fa-solid fa-cart-shopping"></i><p>{userData && Array.isArray(userData.cart) ? userData.cart.length : '0'}</p>
                     </div>
 
-                    <div className='header-login-btn' onClick={() => navigate('/login')}>
+                    { Cookies.get('token') ? " " : <div className='header-login-btn' onClick={() => navigate('/login')}>
                         <button>Login</button>
-                    </div>
+                    </div> }
+
                 </div>
             </div>
         </header>

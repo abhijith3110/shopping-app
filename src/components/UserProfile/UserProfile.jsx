@@ -26,7 +26,7 @@ const UserProfile = () => {
                 style={{ width: "100px", height: "100px" }}
               />
             ) : (
-              <div className="placeholder-image">No Image</div>
+              <img src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_640.png" alt="" />
             )}
           </div>
 
