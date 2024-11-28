@@ -87,7 +87,7 @@ const Header = () => {
                                 <ul>
                                     <li onClick={() => navigate('/user')}> <i class="fa-solid fa-user"></i> Profile</li>
                                     <li><i class="fa-solid fa-truck"></i> Orders</li>
-                                    <li><i class="fa-solid fa-heart"></i> Wishlists</li>
+                                    <li onClick={()=> navigate('/wishlist')}><i class="fa-solid fa-heart"></i> Wishlists</li>
                                     <li onClick={()=> navigate('/logout')}><i class="fa-solid fa-right-from-bracket"></i> Logout</li>
                                 </ul>
                             </div>

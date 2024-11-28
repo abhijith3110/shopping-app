@@ -78,7 +78,7 @@ const ItemCard = ({ selectedCategory, showAll }) => {
 
               <div className="item-card-whishlist">
                 {userData && userData.wishlist ? (
-                  userData.wishlist.includes(product._id) ? (
+                  userData.wishlist.some((item) => item._id === product._id) ? (
                     <span
                       className="fa-solid fa-heart"
                       onClick={() => deleteWishlistProduct(product._id)}
@@ -89,8 +89,14 @@ const ItemCard = ({ selectedCategory, showAll }) => {
                       onClick={() => addToWishlist(product._id)}
                     ></i>
                   )
-                ) : <i className="fa-regular fa-heart" onClick={() => navigate('/login')}></i>}
+                ) : (
+                  <i
+                    className="fa-regular fa-heart"
+                    onClick={() => navigate('/login')}
+                  ></i>
+                )}
               </div>
+
 
               <div className="itemcard-details-rate">
                 <ReactStars

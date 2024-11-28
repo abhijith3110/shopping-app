@@ -134,7 +134,7 @@ export const UserProvider = ({ children }) => {
       const decodedToken = jwtDecode(token);
       const userId = decodedToken.id;
       
-      const response = await fetch(`http://localhost:4000/api/v1/user/wishlist/${userId}/`, {
+      const response = await fetch(`http://localhost:4000/api/v1/user/wishlist/${userId}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
