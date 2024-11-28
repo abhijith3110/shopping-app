@@ -16,6 +16,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import PaymentSuccess from "../components/Modals/SuccessModal.jsx";
 import FailModal from "../components/Modals/FailModal.jsx";
+import Logout from "../components/Modals/Logout.jsx";
 
 const stripePromise = loadStripe('pk_test_51OTIAJSIBQHp4SrpnAMD9ufpg5DJiGLdmzMcNOiCo2KByrnqO7jKDvUJ8Ddvihj6s5nace7mYrm1jjNArTy1yViY00LErcEJBa');
 
@@ -36,8 +37,9 @@ const MyRoutes = () => {
             <Route path="/user" element={<UserProfile />} />
             <Route path="/categories" element={<Allcategories />} />
             <Route path="/products" element={<AllProducts />} />
-              <Route path="/payment-success" element={<PaymentSuccess />} />
-              <Route path="/payment-failure" element={<FailModal />} />
+            <Route path="/payment-success" element={<PaymentSuccess />} />
+            <Route path="/payment-failure" element={<FailModal />} />
+            <Route path="/logout" element={<Logout />} />
             <Route
               path="/cart"
               element={
