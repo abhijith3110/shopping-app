@@ -53,7 +53,7 @@ const Header = () => {
                     <img src="https://optimal-demos.myshopify.com/cdn/shop/files/dm2-logo.png?v=1632039937" alt="header-logo" />
                 </div>
                 <nav className='header-nav'>
-                    <ul>
+                    <ul className='header-nav-ul'>
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/categories">Shop</Link></li>
                         <li><a>Product</a>
@@ -68,8 +68,13 @@ const Header = () => {
                         </li>
                     </ul>
                 </nav>
+
                 <div className='header-icons'>
-                    <div className='header-icon header-user-img' onClick={() => navigate('/user')}>
+
+                    { Cookies.get('token') ?                     <div className='header-icons-nav'>
+                    <ul>
+                        <li>
+                        <div className='header-icon header-user-img'>
                         {userData && userData.image ? (
                             <img src={`http://localhost:4000/uploads/${userData.image}`} alt="User" />
 
@@ -77,6 +82,18 @@ const Header = () => {
                            <img src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_640.png" alt="" />
                         )}
                     </div>
+
+                    <div className='header-icon-nav'>
+                                <ul>
+                                    <li onClick={() => navigate('/user')}> <i class="fa-solid fa-user"></i> Profile</li>
+                                    <li><i class="fa-solid fa-truck"></i> Orders</li>
+                                    <li><i class="fa-solid fa-heart"></i> Wishlists</li>
+                                    <li><i class="fa-solid fa-right-from-bracket"></i> Logout</li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                    </div> : ''}
 
                     <div className='header-icon header-icon-cart' onClick={() => Cookies.get('token') ? navigate('/cart') : navigate('/login')}>
                         <i className="fa-solid fa-cart-shopping"></i><p>{userData && Array.isArray(userData.cart) ? userData.cart.length : '0'}</p>

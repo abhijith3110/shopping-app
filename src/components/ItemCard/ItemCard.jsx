@@ -2,11 +2,22 @@ import React, { useContext } from "react";
 import { ProductContext } from "../../layout/Contexts/productContext";
 import ReactStars from "react-rating-stars-component";
 import userContext from "../../layout/Contexts/userContext";
+import { useNavigate } from "react-router-dom";
 import "./ItemCard.css";
 
 const ItemCard = ({ selectedCategory, showAll }) => {
   const { product } = useContext(ProductContext);
-  const { addToCart, error, addToWishlist, userData, deleteWishlistProduct } = useContext(userContext);
+  const { addToCart, error, addToWishlist, userData, deleteWishlistProduct, deleteCartItem } = useContext(userContext);
+  const navigate = useNavigate()
+
+
+  const handleAddToCart = (productId) => {
+    addToCart({
+      product: { _id: productId },
+      quantity: 1,
+    });
+  };
+
 
   let filteredProducts = [];
 
@@ -40,6 +51,11 @@ const ItemCard = ({ selectedCategory, showAll }) => {
     filteredProducts = [...product];
   }
 
+  const handleRedirectToLogin = () => {
+    navigate('/login');
+  };
+
+
   const itemToDisplay = showAll ? filteredProducts : filteredProducts.slice(0, 4);
 
   return (
@@ -59,12 +75,13 @@ const ItemCard = ({ selectedCategory, showAll }) => {
 
             <div className="itemcard-details-price">${product.price}</div>
             <div className="item-card-price-cart">
+
               <div className="item-card-whishlist">
                 {userData && userData.wishlist ? (
                   userData.wishlist.includes(product._id) ? (
                     <span
                       className="fa-solid fa-heart"
-                      onClick={()=>deleteWishlistProduct(product._id)}
+                      onClick={() => deleteWishlistProduct(product._id)}
                     ></span>
                   ) : (
                     <i
@@ -72,8 +89,9 @@ const ItemCard = ({ selectedCategory, showAll }) => {
                       onClick={() => addToWishlist(product._id)}
                     ></i>
                   )
-                ) : null}
+                ) : <i className="fa-regular fa-heart" onClick={() => navigate('/login')}></i>}
               </div>
+
               <div className="itemcard-details-rate">
                 <ReactStars
                   count={5}
@@ -82,20 +100,26 @@ const ItemCard = ({ selectedCategory, showAll }) => {
                   edit={false}
                 />
               </div>
+
               <div className="add-to-cart-btn">
-                <button
-                  onClick={() =>
-                    addToCart({
-                      product: {
-                        _id: product._id,
-                      },
-                      quantity: 1,
-                    })
-                  }
-                >
-                  <i className="fa-solid fa-cart-plus"></i>
-                </button>
+                {userData && userData.cart && Array.isArray(userData.cart) ? (
+                  userData.cart.some((item) => item.product._id === product._id) ? (
+                    userData.cart.map((cart) => cart.product._id === product._id && (
+                      <button onClick={() => deleteCartItem(cart._id)}><i className="fa-solid fa-cart-shopping" ></i></button>
+                    ))
+                  ) : (
+                    <button onClick={() => handleAddToCart(product._id)}>
+                      <i className="fa-solid fa-cart-plus"></i>
+                    </button>
+                  )
+                ) : (
+                  <button onClick={handleRedirectToLogin}>
+                    <i className="fa-solid fa-cart-plus"></i>
+                  </button>
+                )}
               </div>
+
+
             </div>
           </div>
         </div>

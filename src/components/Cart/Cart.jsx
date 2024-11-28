@@ -7,7 +7,7 @@ import "./Cart.css";
 
 const Cart = () => {
   
-  const { userData, fetchUser } = useContext(userContext);
+  const { userData, fetchUser, deleteCartItem } = useContext(userContext);
   const [quantities, setQuantities] = useState({});
   const [, setError] = useState(null)
 
@@ -89,41 +89,11 @@ const Cart = () => {
     }
   }
 
-  const deleteCartItem = async (cartID) => {
-
-    try {
-
-      const token = Cookies.get("token");
-      const decodedToken = jwtDecode(token);
-      const userId = decodedToken.id;
-      
-      const response = await fetch(`http://localhost:4000/api/v1/user/cart/${userId}/`, {
-        method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ cartId: cartID }),
-      });
-      
-
-      if (!response.ok) {
-
-        throw new Error("Failed to delete cart data.");
-      }
-
-      await fetchUser()
-
-    } catch (error) {
-      setError(error.message);
-
-    }
-
-  }
-
 
   const handlePayment = async () => {
+
     try {
+
         const token = Cookies.get("token");
 
         const response = await fetch("http://localhost:4000/api/v1/user/create-checkout-session", {

@@ -158,12 +158,54 @@ export const UserProvider = ({ children }) => {
 
   }
 
+
+  const deleteCartItem = async (product) => {
+
+    try {
+
+      const token = Cookies.get("token");
+      const decodedToken = jwtDecode(token);
+      const userId = decodedToken.id;
+      
+      const response = await fetch(`http://localhost:4000/api/v1/user/cart/${userId}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ cartId: product }),
+      });
+      
+
+      if (!response.ok) {
+
+        throw new Error("Failed to delete cart data.");
+      }
+
+      await fetchUser()
+
+    } catch (error) {
+
+      console.log(error);
+    }
+
+  }
+
   useEffect(() => {
     fetchUser();
   }, []);
 
   return (
-    <userContext.Provider value={{ userData, error, fetchUser, setUserData, addToCart, addToWishlist, deleteWishlistProduct }}>
+    <userContext.Provider value={{ 
+      userData, 
+      error, 
+      fetchUser, 
+      setUserData, 
+      addToCart, 
+      addToWishlist, 
+      deleteWishlistProduct, 
+      deleteCartItem 
+      }}>
       {children}
     </userContext.Provider>
   );
