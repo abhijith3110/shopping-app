@@ -100,7 +100,7 @@ const ItemCard = ({ selectedCategory, showAll }) => {
           </div>
         </div>
       ))}
-      {error && <p className="error-message">Error: {error}</p>}
+      {error && <p className="error-message"></p>}
     </div>
   );
 };

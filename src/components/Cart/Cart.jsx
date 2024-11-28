@@ -140,6 +140,7 @@ const Cart = () => {
         }
 
         const { sessionId } = await response.json();
+
         const stripe = await loadStripe('pk_test_51OTIAJSIBQHp4SrpnAMD9ufpg5DJiGLdmzMcNOiCo2KByrnqO7jKDvUJ8Ddvihj6s5nace7mYrm1jjNArTy1yViY00LErcEJBa');
 
         const { error } = await stripe.redirectToCheckout({
@@ -152,7 +153,7 @@ const Cart = () => {
         }
 
     } catch (error) {
-        console.error("Error during payment process:", error.message);
+
         alert("An error occurred while processing the payment. Please try again.");
     }
 };
