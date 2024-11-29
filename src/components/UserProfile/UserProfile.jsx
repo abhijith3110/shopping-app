@@ -16,17 +16,33 @@ const UserProfile = () => {
               <img
                 src={`http://localhost:4000/uploads/${userData.image}`}
                 alt={`${userData.first_name}'s profile`}
+                className="profile-image-img"
               />
             ) : (
               <img
                 src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_640.png"
                 alt=""
+                className="profile-image-img"
               />
             )}
+
+            <div className="profile-details-image">
+              {userData && userData.image ? (
+                <img
+                  src={`http://localhost:4000/uploads/${userData.image}`}
+                  alt={`${userData.first_name}'s profile`}
+                />
+              ) : (
+                <img
+                  src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_640.png"
+                  alt=""
+                />
+              )}
+            </div>
           </div>
 
           <div className="profile-details">
-            <div className="profile-details-section">
+            <div className="profile-details-header">
               <h1>
                 {userData?.first_name} {userData?.last_name}
               </h1>
@@ -38,21 +54,24 @@ const UserProfile = () => {
             </div>
 
             <div className="profile-details-section">
-              <i className="fa-solid fa-phone" style={{ color: "green" }}></i>{" "}
-              <p>{userData?.phone}</p>
-            </div>
-
-            <div className="profile-details-section">
               <i
                 className="fa-solid fa-location-dot"
                 style={{ color: "purple" }}
               ></i>{" "}
               <p>{userData?.address}</p>
             </div>
+
+
+            <div className="profile-details-section">
+              <i className="fa-solid fa-phone" style={{ color: "green" }}></i>{" "}
+              <p>{userData?.phone}</p>
+            </div>
+
+
           </div>
 
           <div className="logout-button">
-            <button onClick={()=> navigate('/logout')}>Logout</button>
+            <button onClick={() => navigate('/logout')}>Logout</button>
           </div>
         </div>
       </div>
