@@ -3,7 +3,7 @@ import { userContext } from "../../layout/Contexts/userContext";
 import "./Wishlist.css";
 
 const Wishlist = () => {
-    const { userData } = useContext(userContext);
+    const { userData, deleteWishlistProduct } = useContext(userContext);
 
     return (
 
@@ -16,14 +16,20 @@ const Wishlist = () => {
                     <div className="wishlist-items">
                         {userData.wishlist.map((product) => (
                             <div className="wishlist-item" key={product._id}>
+                                <div className="wishlist-item-img">
                                 <img
                                     src={`http://localhost:4000/uploads/${product.product_image}`}
                                     alt={product.name}
-                                    className="wishlist-item-image"
                                 />
+                                </div>
                                 <div className="wishlist-item-details">
+                                    <div>
                                     <h2>{product.name}</h2>
+                                    </div>
+                                    <div className="wishlist-item-btn">
                                     <p>Price: ${product.price}</p>
+                                    <i class="fa-solid fa-trash" onClick={()=> deleteWishlistProduct(product._id)}></i>
+                                    </div>
                                 </div>
                             </div>
                         ))}

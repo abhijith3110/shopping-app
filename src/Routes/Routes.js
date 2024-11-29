@@ -18,6 +18,7 @@ import PaymentSuccess from "../components/Modals/SuccessModal.jsx";
 import FailModal from "../components/Modals/FailModal.jsx";
 import Logout from "../components/Modals/Logout.jsx";
 import Wishlist from "../components/Wishlist/Wishlist.jsx";
+import Order from "../components/Order/Order.jsx";
 
 const stripePromise = loadStripe('pk_test_51OTIAJSIBQHp4SrpnAMD9ufpg5DJiGLdmzMcNOiCo2KByrnqO7jKDvUJ8Ddvihj6s5nace7mYrm1jjNArTy1yViY00LErcEJBa');
 
@@ -42,6 +43,7 @@ const MyRoutes = () => {
             <Route path="/payment-failure" element={<FailModal />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/wishlist" element={<Wishlist />} />
+            <Route path="/order" element={<Order />} />
             <Route
               path="/cart"
               element={
