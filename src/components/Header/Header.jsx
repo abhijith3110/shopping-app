@@ -76,7 +76,7 @@ const Header = () => {
                         <li>
                         <div className='header-icon header-user-img'>
                         {userData && userData.image ? (
-                            <img src={`http://localhost:4000/uploads/${userData.image}`} alt="User" />
+                            <img src={`https://optimal-shoppings.onrender.com/uploads/${userData.image}`} alt="User" />
 
                         ) : (
                            <img src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_640.png" alt="" />

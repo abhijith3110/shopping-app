@@ -18,7 +18,7 @@ const Wishlist = () => {
                             <div className="wishlist-item" key={product._id}>
                                 <div className="wishlist-item-img">
                                 <img
-                                    src={`http://localhost:4000/uploads/${product.product_image}`}
+                                    src={`https://optimal-shoppings.onrender.com/uploads/${product.product_image}`}
                                     alt={product.name}
                                 />
                                 </div>

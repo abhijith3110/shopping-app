@@ -20,7 +20,7 @@ const PaymentSuccess = () => {
 
         if (sessionId) {
 
-            fetch("http://localhost:4000/api/v1/order/verify-payment", {
+            fetch("https://optimal-shoppings.onrender.com/api/v1/order/verify-payment", {
                 method: 'POST',  
                 headers: {
                   Authorization: `Bearer ${token}`,

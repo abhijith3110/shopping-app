@@ -14,7 +14,7 @@ const UserProfile = () => {
           <div className="profile-image">
             {userData && userData.image ? (
               <img
-                src={`http://localhost:4000/uploads/${userData.image}`}
+                src={`https://optimal-shoppings.onrender.com/uploads/${userData.image}`}
                 alt={`${userData.first_name}'s profile`}
                 className="profile-image-img"
               />

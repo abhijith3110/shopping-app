@@ -41,7 +41,7 @@ const Cart = () => {
       });
   
 
-      const response = await fetch(`http://localhost:4000/api/v1/user/${userId}`, {
+      const response = await fetch(`https://optimal-shoppings.onrender.com/api/v1/user/${userId}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -96,7 +96,7 @@ const Cart = () => {
 
         const token = Cookies.get("token");
 
-        const response = await fetch("http://localhost:4000/api/v1/user/create-checkout-session", {
+        const response = await fetch("https://optimal-shoppings.onrender.com/api/v1/user/create-checkout-session", {
             method: "POST",
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -155,7 +155,7 @@ const Cart = () => {
                 <tr key={item._id}>
                   <td className="cart-product-image-name">
                     <img
-                      src={`http://localhost:4000/uploads/${item.product.product_image}`}
+                      src={`https://optimal-shoppings.onrender.com/${item.product.product_image}`}
                       alt={item.product.name}
                       className="cart-item-image"
                     />

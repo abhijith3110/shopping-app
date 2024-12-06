@@ -64,7 +64,7 @@ const ItemCard = ({ selectedCategory, showAll }) => {
         <div className="itemcard" key={product._id}>
           <div className="itemcard-img">
             <img
-              src={`http://localhost:4000/uploads/${product.product_image}`}
+              src={`https://optimal-shoppings.onrender.com/uploads/${product.product_image}`}
               alt="Product"
             />
           </div>

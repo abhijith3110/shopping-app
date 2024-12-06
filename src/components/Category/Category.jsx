@@ -32,7 +32,7 @@ const Category = () => {
                         category.map((item) => (
                             <div className="category-list" key={item._id}>
                                 <div className="category-list-img" onClick={() => handleCategoryNavigation(`${item.name}`)}>
-                                    <img src={`http://localhost:4000/uploads/${item.category_image}`} alt={item.name} />
+                                    <img src={`https://optimal-shoppings.onrender.com/uploads/${item.category_image}`} alt={item.name} />
                                 </div>
                                 <div className="category-list-category">
                                     <p>{item.name.toUpperCase()}</p>

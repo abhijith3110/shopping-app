@@ -21,7 +21,7 @@ export const UserProvider = ({ children }) => {
       const decodedToken = jwtDecode(token);
       const userId = decodedToken.id;
 
-      const response = await fetch(`http://localhost:4000/api/v1/user/${userId}`, {
+      const response = await fetch(`https://optimal-shoppings.onrender.com/api/v1/user/${userId}`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -56,7 +56,7 @@ export const UserProvider = ({ children }) => {
 
     try {
       const response = await fetch(
-        `http://localhost:4000/api/v1/user/${userId}`,
+        `https://optimal-shoppings.onrender.com/api/v1/user/${userId}`,
         {
           method: "PATCH",
           headers: {
@@ -98,7 +98,7 @@ export const UserProvider = ({ children }) => {
 
     try {
       const response = await fetch(
-        `http://localhost:4000/api/v1/user/wishlist/${userId}`,
+        `https://optimal-shoppings.onrender.com/api/v1/user/wishlist/${userId}`,
         {
           method: "PATCH",
           headers: {
@@ -134,7 +134,7 @@ export const UserProvider = ({ children }) => {
       const decodedToken = jwtDecode(token);
       const userId = decodedToken.id;
       
-      const response = await fetch(`http://localhost:4000/api/v1/user/wishlist/${userId}`, {
+      const response = await fetch(`https://optimal-shoppings.onrender.com/api/v1/user/wishlist/${userId}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -167,7 +167,7 @@ export const UserProvider = ({ children }) => {
       const decodedToken = jwtDecode(token);
       const userId = decodedToken.id;
       
-      const response = await fetch(`http://localhost:4000/api/v1/user/cart/${userId}`, {
+      const response = await fetch(`https://optimal-shoppings.onrender.com/api/v1/user/cart/${userId}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
