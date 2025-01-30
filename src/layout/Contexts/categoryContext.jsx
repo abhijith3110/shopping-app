@@ -13,7 +13,7 @@ export const CategoryProvider = ({ children }) => {
 
             try {
 
-                const response = await fetch("http://localhost:4000/api/v1/category/all");
+                const response = await fetch("https://optimal-shoppings.onrender.com/api/v1/category/all");
 
                 if (!response.ok) {
 

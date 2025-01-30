@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Register.css";
 
 const Resigter = () => {
   const navigate = useNavigate();
   const [file, setFile] = useState();
-  const [error, setError] = useState(null);
+  const [, setError] = useState(null);
   const [userData, setUserData] = useState({
     first_name: "",
     last_name: "",
@@ -43,7 +43,7 @@ const Resigter = () => {
     setError(null);
 
     try {
-      const response = await fetch("http://localhost:4000/api/v1/user", {
+      const response = await fetch("https://optimal-shoppings.onrender.com/api/v1/user", {
         method: "POST",
         body: formData,
       });
@@ -150,9 +150,12 @@ const Resigter = () => {
             </form>
           </div>
           <div className="register-btn">
+          <Link to= "/"><button style={{background: "red", border:"none" }}> Cancel</button></Link>
             <button type="submit" onClick={handleSubmit}>Sign Up</button>
-            <p>
-              Already have Account ?<a href="/login"> Login</a>
+          </div>
+          <div className="signup-link">
+          <p>
+              Already have Account ?<Link to="/login"> Login</Link>
             </p>
           </div>
         </div>

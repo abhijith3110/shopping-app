@@ -1,0 +1,85 @@
+@font-face {
+  font-family: "playfair";
+  src: url("../../../public/assets/fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf") format("truetype");
+}
+
+.wishlist-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.wishlist {
+  background: #d7d7d753;
+  padding: 40px;
+}
+
+.wishlist-container h1 {
+  text-align: center;
+  font-family: "playfair", sans-serif;
+  color: #333;
+  font-size: 34px;
+  font-weight: 300;
+}
+
+.wishlist-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.wishlist-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 250px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.wishlist-item img {
+  width: 100%;
+  height: 180%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.wishlist-item-img{
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+}
+
+.wishlist-item-details {
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.wishlist-item-details h2 {
+  font-size: 18px;
+  color: #333;
+}
+
+.wishlist-item-details p {
+  font-size: 18px;
+  font-weight: 300;
+  color: #666;
+}
+
+.wishlist-item-btn{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wishlist-item-btn i {
+  color: red;
+  cursor: pointer;
+}
